@@ -1,0 +1,1146 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>每天比赛在线观看-实时赛程与直播观赛指南</title>
+<meta name="description" content="每天比赛在线观看是围绕每日赛程与直播观赛的实用页面，汇总足球、篮球、电竞等项目的开赛时间、直播入口、比分回放与观赛技巧，帮助球迷按日期锁定想看的每一场比赛。">
+<meta name="keywords" content="每天比赛在线观看">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e7c66'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23fff' stroke-width='4'/%3E%3Cpath d='M32 15v34M15 32h34' stroke='%23fff' stroke-width='4'/%3E%3C/svg%3E">
+<style>
+:root{
+  --c-primary:#0e7c66;
+  --c-primary-dark:#0a5c4c;
+  --c-primary-soft:#e3f4ef;
+  --c-accent:#e0663a;
+  --c-accent-soft:#fdeae2;
+  --c-ink:#16211e;
+  --c-ink-2:#3d4b47;
+  --c-ink-3:#6c7b76;
+  --c-line:#dfe6e3;
+  --c-bg:#f6f9f8;
+  --c-card:#ffffff;
+  --c-warn:#b07c12;
+  --c-warn-soft:#fdf4e0;
+  --r-sm:6px;
+  --r-md:10px;
+  --r-lg:16px;
+  --sh-1:0 1px 2px rgba(22,33,30,.06),0 4px 14px rgba(22,33,30,.05);
+  --sh-2:0 2px 6px rgba(22,33,30,.08),0 12px 30px rgba(22,33,30,.08);
+  --sp-1:6px;--sp-2:10px;--sp-3:16px;--sp-4:24px;--sp-5:36px;--sp-6:56px;
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --nav-h:62px;
+  --ann-h:38px;
+  --sticky-h:calc(var(--nav-h) + var(--ann-h));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:var(--font);color:var(--c-ink);background:var(--c-bg);
+  line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:var(--c-primary-dark);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:3px solid var(--c-accent);outline-offset:2px;border-radius:4px}
+h1,h2,h3,h4{line-height:1.35;margin:0 0 var(--sp-3)}
+p{margin:0 0 var(--sp-3)}
+section[id],div[id]{scroll-margin-top:calc(var(--sticky-h) + 8px)}
+
+/* ============ 顶部吸顶组 ============ */
+.sticky-top{position:sticky;top:0;z-index:60;box-shadow:0 1px 0 var(--c-line)}
+.announce{
+  background:var(--c-primary-dark);color:#eafaf4;font-size:13px;
+  height:var(--ann-h);display:flex;align-items:center;
+}
+.announce .wrap{display:flex;align-items:center;gap:var(--sp-3);overflow:hidden}
+.announce b{color:#fff}
+.announce .dot{width:7px;height:7px;border-radius:50%;background:#5ee1b6;flex:none;animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.announce time{color:#9fd9c8;font-variant-numeric:tabular-nums}
+
+.site-header{background:rgba(255,255,255,.97);backdrop-filter:blur(6px);height:var(--nav-h)}
+.site-header .wrap{height:100%;display:flex;align-items:center;gap:var(--sp-3)}
+.brand{display:flex;align-items:center;gap:10px;flex:none}
+.brand-mark{width:38px;height:38px;flex:none}
+.brand-text{font-weight:800;font-size:18px;letter-spacing:.5px;color:var(--c-primary-dark);white-space:nowrap}
+.main-nav{margin-left:var(--sp-3);flex:1;min-width:0}
+.main-nav ul{display:flex;gap:2px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+.main-nav ul::-webkit-scrollbar{display:none}
+.main-nav a{
+  display:block;padding:8px 11px;border-radius:var(--r-sm);color:var(--c-ink-2);
+  font-size:14.5px;white-space:nowrap;font-weight:500;
+}
+.main-nav a:hover{background:var(--c-primary-soft);color:var(--c-primary-dark);text-decoration:none}
+.header-tools{display:flex;align-items:center;gap:var(--sp-2);flex:none}
+.search-box{display:flex;align-items:center;background:var(--c-bg);border:1px solid var(--c-line);border-radius:var(--r-md);padding:3px 4px 3px 10px}
+.search-box input{border:0;background:transparent;font:inherit;font-size:14px;width:132px;color:var(--c-ink);outline:none}
+.search-box button{
+  border:0;background:var(--c-primary);color:#fff;border-radius:var(--r-sm);
+  font:inherit;font-size:13px;padding:5px 10px;cursor:pointer;
+}
+.search-box button:hover{background:var(--c-primary-dark)}
+.btn-live{
+  display:inline-flex;align-items:center;gap:6px;background:var(--c-accent);color:#fff;
+  border-radius:var(--r-md);padding:8px 14px;font-size:14px;font-weight:600;
+}
+.btn-live:hover{background:#c9532b;text-decoration:none;color:#fff}
+.nav-toggle{
+  display:none;border:1px solid var(--c-line);background:#fff;border-radius:var(--r-sm);
+  width:40px;height:38px;cursor:pointer;align-items:center;justify-content:center;padding:0;
+}
+.nav-toggle svg{width:20px;height:20px;stroke:var(--c-ink-2)}
+
+/* ============ 布局 ============ */
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 316px;gap:var(--sp-5);padding:var(--sp-5) 0 var(--sp-6)}
+main{min-width:0}
+aside{min-width:0}
+
+/* ============ 首屏 ============ */
+.hero{
+  position:relative;overflow:hidden;border-radius:var(--r-lg);color:#fff;
+  background:linear-gradient(135deg,#0a5c4c 0%,#0e7c66 52%,#12907a 100%);
+  padding:var(--sp-5) var(--sp-5) var(--sp-5);
+  box-shadow:var(--sh-2);
+}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:var(--sp-4);align-items:center;position:relative;z-index:2}
+.kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:5px 13px;font-size:13px;letter-spacing:.4px;margin-bottom:var(--sp-3)}
+.kicker i{width:7px;height:7px;border-radius:50%;background:#5ee1b6;display:block}
+.hero h1{font-size:clamp(28px,4vw,40px);letter-spacing:1px;margin-bottom:var(--sp-3);font-weight:800}
+.hero-desc{color:#d5f0e8;font-size:15.5px;max-width:36em;margin-bottom:var(--sp-4)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:var(--sp-2)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 20px;border-radius:var(--r-md);font-weight:600;font-size:15px;border:1px solid transparent;
+  transition:transform .18s,background .18s;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-solid{background:#fff;color:var(--c-primary-dark)}
+.btn-solid:hover{background:#eafaf4;color:var(--c-primary-dark)}
+.btn-ghost{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.45)}
+.btn-ghost:hover{background:rgba(255,255,255,.2)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-2);margin-top:var(--sp-4)}
+.hero-stats div{background:rgba(0,0,0,.16);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-md);padding:10px 12px}
+.hero-stats b{display:block;font-size:21px;letter-spacing:.5px;font-variant-numeric:tabular-nums}
+.hero-stats span{font-size:12.5px;color:#bfe6da}
+.hero-art{position:relative;aspect-ratio:1/1;max-width:330px;margin-left:auto;width:100%}
+.hero-art svg{width:100%;height:100%}
+.hero-bg-lines{position:absolute;inset:0;opacity:.14;z-index:1}
+
+/* ============ 通用板块 ============ */
+.block{margin-bottom:var(--sp-5)}
+.block-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--sp-3);margin-bottom:var(--sp-3);flex-wrap:wrap}
+.block-head h2{font-size:22px;margin:0;position:relative;padding-left:14px}
+.block-head h2::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:4px;border-radius:2px;background:var(--c-primary)}
+.block-head .more{font-size:13.5px;color:var(--c-ink-3);white-space:nowrap}
+.card{background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-lg);box-shadow:var(--sh-1)}
+.pad{padding:var(--sp-4)}
+
+/* 更新提示条 */
+.update-ticker{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-2);margin-bottom:var(--sp-4)}
+.update-ticker a{
+  display:block;background:var(--c-card);border:1px solid var(--c-line);border-left:3px solid var(--c-accent);
+  border-radius:var(--r-md);padding:10px 13px;color:var(--c-ink-2);font-size:13.5px;line-height:1.5;
+}
+.update-ticker a:hover{border-color:var(--c-primary);border-left-color:var(--c-accent);text-decoration:none;background:#fbfefd}
+.update-ticker b{display:block;color:var(--c-ink);font-size:14px;margin-bottom:2px}
+.update-ticker time{color:var(--c-accent);font-variant-numeric:tabular-nums;font-weight:600}
+
+/* 概览三栏 */
+.overview{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3)}
+.ov-card{background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-lg);padding:var(--sp-3);display:flex;flex-direction:column;gap:10px}
+.ov-card h3{font-size:16px;margin:0;display:flex;align-items:center;gap:8px}
+.pill{font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--c-primary-soft);color:var(--c-primary-dark);white-space:nowrap}
+.pill.orange{background:var(--c-accent-soft);color:#b8491f}
+.pill.warn{background:var(--c-warn-soft);color:var(--c-warn)}
+.ov-card p{font-size:14px;color:var(--c-ink-2);margin:0}
+.ov-card ul{margin:0;padding-left:18px;font-size:14px;color:var(--c-ink-2)}
+.ov-card li{margin-bottom:4px}
+
+/* 精选网格 */
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-3)}
+.feature{display:flex;gap:var(--sp-3);background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-lg);overflow:hidden;transition:transform .2s,box-shadow .2s}
+.feature:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
+.feature-img{width:132px;flex:none;aspect-ratio:4/3;object-fit:cover;background:var(--c-primary-soft)}
+.feature-body{padding:var(--sp-3) var(--sp-3) var(--sp-3) 0;min-width:0;flex:1}
+.feature-body h3{font-size:15.5px;margin:0 0 6px}
+.feature-body p{font-size:13px;color:var(--c-ink-3);margin:0 0 8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--c-ink-3);align-items:center}
+.tag{background:var(--c-bg);border:1px solid var(--c-line);border-radius:var(--r-sm);padding:1px 8px;font-size:12px;color:var(--c-ink-2)}
+.tag:hover{border-color:var(--c-primary);color:var(--c-primary-dark);text-decoration:none}
+
+/* 紧凑列表 */
+.list-card{list-style:none;margin:0;padding:0}
+.list-card li{display:flex;gap:var(--sp-3);padding:12px 0;border-bottom:1px dashed var(--c-line);align-items:flex-start}
+.list-card li:last-child{border-bottom:0;padding-bottom:0}
+.list-card li:first-child{padding-top:0}
+.list-time{flex:none;width:52px;font-size:13px;font-variant-numeric:tabular-nums;color:var(--c-primary-dark);font-weight:700;padding-top:2px}
+.list-main{min-width:0;flex:1}
+.list-main strong{display:block;font-size:14.5px;font-weight:600;color:var(--c-ink);margin-bottom:2px}
+.list-main span{font-size:13px;color:var(--c-ink-3)}
+.list-badge{flex:none;font-size:11.5px;padding:1px 8px;border-radius:999px;font-weight:600}
+
+/* 分类索引 */
+.cat-index{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-2)}
+.cat-index a{
+  display:flex;flex-direction:column;gap:3px;background:var(--c-card);border:1px solid var(--c-line);
+  border-radius:var(--r-md);padding:11px 13px;color:var(--c-ink);font-size:14.5px;font-weight:600;
+}
+.cat-index a small{font-weight:400;font-size:12px;color:var(--c-ink-3)}
+.cat-index a:hover{background:var(--c-primary-soft);border-color:var(--c-primary);text-decoration:none}
+
+/* 深度解析 */
+.analysis{background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-lg);padding:var(--sp-4)}
+.analysis-intro{font-size:15px;color:var(--c-ink-2);border-left:3px solid var(--c-primary);padding-left:14px;margin-bottom:var(--sp-4)}
+.analysis h3{font-size:17px;margin:var(--sp-4) 0 var(--sp-2);padding-bottom:6px;border-bottom:1px solid var(--c-line)}
+.analysis h3:first-of-type{margin-top:0}
+.analysis p{font-size:15px;color:var(--c-ink-2)}
+.claim{
+  background:var(--c-primary-soft);border-radius:var(--r-md);padding:13px 16px;margin:var(--sp-3) 0;
+  font-size:14.5px;color:var(--c-primary-dark);font-weight:600;
+}
+.datatable{width:100%;border-collapse:collapse;font-size:13.5px;margin:var(--sp-2) 0 var(--sp-3)}
+.datatable th,.datatable td{border:1px solid var(--c-line);padding:8px 11px;text-align:left}
+.datatable th{background:var(--c-bg);font-weight:600;color:var(--c-ink)}
+.datatable td{color:var(--c-ink-2);font-variant-numeric:tabular-nums}
+.datatable tr:nth-child(even) td{background:#fbfdfc}
+
+/* 步骤 */
+.steps{counter-reset:step;list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-2)}
+.steps li{
+  counter-increment:step;position:relative;padding:12px 14px 12px 52px;
+  background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-md);font-size:14px;color:var(--c-ink-2);
+}
+.steps li::before{
+  content:counter(step);position:absolute;left:12px;top:11px;width:26px;height:26px;border-radius:50%;
+  background:var(--c-primary);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;
+}
+.steps li b{color:var(--c-ink);display:block;font-size:14.5px;margin-bottom:2px}
+
+/* FAQ */
+.faq details{background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-md);margin-bottom:10px;overflow:hidden}
+.faq summary{
+  cursor:pointer;padding:13px 16px;font-weight:600;font-size:15px;color:var(--c-ink);
+  list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:20px;color:var(--c-primary);font-weight:400;line-height:1;flex:none}
+.faq details[open] summary::after{content:"−"}
+.faq details[open] summary{background:var(--c-primary-soft);color:var(--c-primary-dark)}
+.faq .ans{padding:12px 16px 16px;font-size:14.5px;color:var(--c-ink-2);border-top:1px solid var(--c-line)}
+
+/* 评论 */
+.comments{display:grid;gap:var(--sp-2)}
+.comment{background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-md);padding:13px 15px}
+.comment header{display:flex;align-items:center;gap:9px;margin-bottom:6px;flex-wrap:wrap}
+.avatar{width:30px;height:30px;border-radius:50%;background:var(--c-primary-soft);color:var(--c-primary-dark);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none}
+.comment .who{font-size:13.5px;font-weight:600;color:var(--c-ink)}
+.comment time{font-size:12px;color:var(--c-ink-3);font-variant-numeric:tabular-nums}
+.comment p{font-size:14px;color:var(--c-ink-2);margin:0}
+.comment p b{color:var(--c-ink)}
+
+/* 资讯 */
+.news-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-2)}
+.news-item{background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-md);padding:13px 15px}
+.news-item h3{font-size:14.5px;margin:0 0 5px}
+.news-item p{font-size:13px;color:var(--c-ink-3);margin:0}
+.news-item .src{font-size:12px;color:var(--c-primary-dark);margin-top:6px;display:block}
+
+/* 标签索引 */
+.tag-cloud{display:flex;flex-wrap:wrap;gap:8px}
+.tag-cloud a{background:var(--c-card);border:1px solid var(--c-line);border-radius:999px;padding:5px 14px;font-size:13.5px;color:var(--c-ink-2)}
+.tag-cloud a:hover{background:var(--c-primary-soft);border-color:var(--c-primary);color:var(--c-primary-dark);text-decoration:none}
+
+/* 榜单 */
+.rank-list{list-style:none;margin:0;padding:0;counter-reset:rank}
+.rank-list li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px dashed var(--c-line)}
+.rank-list li:last-child{border-bottom:0}
+.rank-list li::before{
+  counter-increment:rank;content:counter(rank);flex:none;width:24px;height:24px;border-radius:var(--r-sm);
+  background:var(--c-bg);color:var(--c-ink-3);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;
+}
+.rank-list li:nth-child(-n+3)::before{background:var(--c-accent);color:#fff}
+.rank-list .r-main{flex:1;min-width:0}
+.rank-list .r-main strong{font-size:14.5px;display:block}
+.rank-list .r-main span{font-size:12.5px;color:var(--c-ink-3)}
+.rank-list .r-val{flex:none;font-size:13.5px;font-weight:700;color:var(--c-primary-dark);font-variant-numeric:tabular-nums}
+
+/* 时间线 */
+.timeline{list-style:none;margin:0;padding:0 0 0 20px;position:relative}
+.timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--c-line)}
+.timeline li{position:relative;padding-bottom:var(--sp-3)}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:-19px;top:7px;width:11px;height:11px;border-radius:50%;background:#fff;border:3px solid var(--c-primary)}
+.timeline time{font-size:12.5px;color:var(--c-accent);font-weight:700;font-variant-numeric:tabular-nums}
+.timeline b{display:block;font-size:14.5px;margin:2px 0 3px}
+.timeline p{font-size:13.5px;color:var(--c-ink-2);margin:0}
+
+/* 侧栏 */
+.side-card{background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-lg);padding:var(--sp-3) var(--sp-3);margin-bottom:var(--sp-3);box-shadow:var(--sh-1)}
+.side-card h2{font-size:16px;margin:0 0 var(--sp-2);padding-bottom:8px;border-bottom:1px solid var(--c-line);display:flex;align-items:center;gap:8px}
+.side-card h2 span{font-size:11.5px;font-weight:600;color:var(--c-primary-dark);background:var(--c-primary-soft);border-radius:999px;padding:1px 8px}
+.side-nav ul{list-style:none;margin:0;padding:0}
+.side-nav a{display:block;padding:6px 10px;border-radius:var(--r-sm);font-size:14px;color:var(--c-ink-2);border-left:3px solid transparent}
+.side-nav a:hover{background:var(--c-bg);text-decoration:none}
+.side-nav a.active{background:var(--c-primary-soft);color:var(--c-primary-dark);font-weight:600;border-left-color:var(--c-primary)}
+.side-list{list-style:none;margin:0;padding:0}
+.side-list li{padding:8px 0;border-bottom:1px dashed var(--c-line);font-size:13.5px}
+.side-list li:last-child{border-bottom:0}
+.side-list a{color:var(--c-ink);display:block}
+.side-list small{display:block;color:var(--c-ink-3);font-size:12px;margin-top:1px}
+.side-note{font-size:12.5px;color:var(--c-ink-3);margin:8px 0 0}
+
+/* 搜索反馈 */
+.search-result{margin-top:var(--sp-3)}
+.search-result .hit{font-size:13.5px;color:var(--c-ink-2);padding:7px 0;border-bottom:1px dashed var(--c-line)}
+.search-result .hit:last-child{border-bottom:0}
+.search-empty{font-size:13.5px;color:var(--c-warn);background:var(--c-warn-soft);border-radius:var(--r-md);padding:10px 13px}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:18px;bottom:22px;z-index:70;width:44px;height:44px;border-radius:50%;
+  background:var(--c-primary-dark);color:#fff;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--sh-2);opacity:0;visibility:hidden;transform:translateY(10px);transition:.25s;
+}
+.to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+.to-top svg{width:20px;height:20px;stroke:#fff}
+
+/* 页脚 */
+.site-footer{background:#12211d;color:#b9cdc6;padding:var(--sp-5) 0 var(--sp-4);font-size:14px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:var(--sp-4);margin-bottom:var(--sp-4)}
+.site-footer h3{font-size:15px;color:#fff;margin:0 0 10px}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.footer-brand .brand-text{color:#fff;font-size:17px}
+.site-footer p{color:#93a9a2;font-size:13px;line-height:1.7;margin:0 0 8px}
+.site-footer ul{list-style:none;margin:0;padding:0}
+.site-footer li{margin-bottom:6px}
+.site-footer a{color:#c6d8d2;font-size:13.5px}
+.site-footer a:hover{color:#fff}
+.footer-note{border-top:1px solid #253a34;padding-top:var(--sp-3);display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:12.5px;color:#7f948d}
+.footer-note .legal{display:flex;flex-wrap:wrap;gap:14px}
+
+/* 响应式 */
+@media (max-width:1024px){
+  .layout{grid-template-columns:1fr;gap:var(--sp-4)}
+  aside{order:2}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-art{max-width:260px;margin:0 auto}
+  .cat-index{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:860px){
+  .overview{grid-template-columns:1fr}
+  .feature-grid{grid-template-columns:1fr}
+  .news-grid{grid-template-columns:1fr}
+  .update-ticker{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .search-box input{width:96px}
+  .main-nav{display:none}
+  .main-nav.open{
+    display:block;position:absolute;left:0;right:0;top:100%;
+    background:#fff;border-top:1px solid var(--c-line);box-shadow:var(--sh-2);padding:8px 12px 14px;
+  }
+  .site-header{position:relative}
+  .site-header .wrap{position:relative}
+  .main-nav.open ul{flex-direction:column;overflow:visible}
+  .main-nav.open a{padding:11px 12px;font-size:15px;border-bottom:1px solid var(--c-line);border-radius:0}
+  .nav-toggle{display:inline-flex}
+  .header-tools{margin-left:auto}
+  .btn-live span{display:none}
+  .btn-live{padding:8px 11px}
+}
+@media (max-width:600px){
+  body{font-size:15.5px}
+  .wrap{padding:0 14px}
+  .hero{padding:var(--sp-4) var(--sp-3)}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .hero-stats div:last-child{grid-column:1/-1}
+  .cat-index{grid-template-columns:repeat(2,1fr)}
+  .update-ticker{grid-template-columns:1fr}
+  .feature{flex-direction:column}
+  .feature-img{width:100%;aspect-ratio:16/9}
+  .feature-body{padding:0 var(--sp-3) var(--sp-3)}
+  .footer-grid{grid-template-columns:1fr}
+  .search-box{display:none}
+  .to-top{right:12px;bottom:14px;width:40px;height:40px}
+  .list-time{width:46px;font-size:12.5px}
+  .block-head h2{font-size:19px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  .feature:hover,.btn:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶组：公告条 + 页头 -->
+<div class="sticky-top">
+  <div class="announce" role="region" aria-label="站内更新公告">
+    <div class="wrap">
+      <span class="dot" aria-hidden="true"></span>
+      <span><b>今天 11 月 8 日</b> 共 87 场赛事在线直播：西甲第 13 轮、NBA 常规赛 6 场、LPL 冬季赛 2 场</span>
+      <time datetime="2026-11-08">11-08 09:20 更新</time>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/#top" aria-label="每天比赛在线观看 首页">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#0e7c66"/>
+          <circle cx="32" cy="32" r="17" fill="none" stroke="#fff" stroke-width="3.5"/>
+          <path d="M32 15v34M15 32h34" stroke="#fff" stroke-width="3.5"/>
+          <circle cx="32" cy="32" r="5" fill="#e0663a"/>
+        </svg>
+        <span class="brand-text">每天比赛在线观看</span>
+      </a>
+      <nav class="main-nav" id="mainNav" aria-label="主题导航">
+        <ul>
+          <li><a href="/#schedule">今日赛程</a></li>
+          <li><a href="/#live">直播入口</a></li>
+          <li><a href="/#featured">精选推荐</a></li>
+          <li><a href="/#categories">项目分类</a></li>
+          <li><a href="/#analysis">深度解析</a></li>
+          <li><a href="/#guide">观赛指南</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+        </ul>
+      </nav>
+      <div class="header-tools">
+        <div class="search-box" role="search">
+          <input id="searchInput" type="search" placeholder="搜球队 / 联赛" aria-label="站内搜索">
+          <button type="button" id="searchBtn">查找</button>
+        </div>
+        <a class="btn-live" href="/#live">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <span>直播中</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="展开导航菜单">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div class="wrap" id="top">
+
+  <!-- 首屏 -->
+  <div class="hero" role="banner" aria-labelledby="heroTitle">
+    <svg class="hero-bg-lines" viewBox="0 0 600 400" preserveAspectRatio="none" aria-hidden="true">
+      <g stroke="#ffffff" stroke-width="1" fill="none">
+        <path d="M0 300 Q150 220 300 260 T600 200"/>
+        <path d="M0 340 Q150 260 300 300 T600 240"/>
+        <circle cx="470" cy="90" r="58"/><circle cx="470" cy="90" r="92"/>
+      </g>
+    </svg>
+    <div class="hero-grid">
+      <div>
+        <span class="kicker"><i aria-hidden="true"></i> 每日赛程 · 多项目直播聚合</span>
+        <h1 id="heroTitle">每天比赛在线观看</h1>
+        <p class="hero-desc">把散落在各平台的比赛频道收拢到一页。早上看赛程表，晚上点开直播入口；西甲、NBA、LPL 与世界杯预选赛的开赛时间、比分回放、解说频道都在同一屏里核对。</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="/#schedule">查看今日 87 场赛程</a>
+          <a class="btn btn-ghost" href="/#guide">观赛入门指南</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>87</b><span>今日直播场次</span></div>
+          <div><b>14</b><span>覆盖联赛与杯赛</span></div>
+          <div><b>09:20</b><span>赛程表最后校订</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 300 300">
+          <defs>
+            <linearGradient id="gBall" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/>
+              <stop offset="1" stop-color="#d5f0e8" stop-opacity=".7"/>
+            </linearGradient>
+          </defs>
+          <circle cx="150" cy="150" r="108" fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width="2" stroke-dasharray="6 8"/>
+          <circle cx="150" cy="150" r="80" fill="none" stroke="#ffffff" stroke-opacity=".25" stroke-width="44" stroke-dasharray="10 14"/>
+          <circle cx="150" cy="150" r="52" fill="url(#gBall)"/>
+          <path d="M150 98 L186 124 L172 166 L128 166 L114 124 Z" fill="#0a5c4c" fill-opacity=".55"/>
+          <path d="M150 98 L150 70 M186 124 L212 110 M172 166 L186 194 M128 166 L114 194 M114 124 L88 110" stroke="#0a5c4c" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/>
+          <g fill="#e0663a">
+            <circle cx="62" cy="86" r="5"/><circle cx="238" cy="212" r="5"/><circle cx="222" cy="68" r="4"/>
+          </g>
+          <g font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#d5f0e8" font-weight="600">
+            <text x="196" y="40">LIVE</text>
+            <text x="42" y="248">20:00 西甲</text>
+          </g>
+          <circle cx="222" cy="37" r="4" fill="#5ee1b6"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="layout">
+
+    <!-- 主内容区 -->
+    <main>
+
+      <!-- 更新提示 -->
+      <div class="update-ticker" aria-label="近期赛程变动">
+        <a href="/#schedule"><b>皇马 vs 塞维利亚</b>开球改为 21:00<time datetime="2026-11-08">今天 08:45</time></a>
+        <a href="/#live"><b>NBA 湖人客场</b>直播源增至 3 路<time datetime="2026-11-08">今天 07:30</time></a>
+        <a href="/#featured"><b>LPL 冬季赛</b>今日两场 BO3 排期<time datetime="2026-11-07">昨天 22:10</time></a>
+        <a href="/#analysis"><b>欧冠抽签</b>赛制说明已更新<time datetime="2026-11-06">11-06</time></a>
+      </div>
+
+      <!-- 01 领域概览 -->
+      <section class="block" id="overview" aria-labelledby="ovTitle">
+        <div class="block-head">
+          <h2 id="ovTitle">每日赛事观赛概览</h2>
+          <span class="more">按项目 · 按时段 · 按平台</span>
+        </div>
+        <div class="overview">
+          <div class="ov-card">
+            <h3>足球：欧洲联赛 + 南美解放者杯 <span class="pill">今日 34 场</span></h3>
+            <p>北京时间 18:30 从澳超开场，20:00 起西甲、英超接续，凌晨 03:00 解放者杯半决赛次回合。CCTV5、咪咕、爱奇艺体育分持版权。</p>
+            <ul>
+              <li>西甲第 13 轮：3 场，含皇马主场</li>
+              <li>英超第 11 轮：4 场，两场在 23:00</li>
+              <li>解放者杯：1 场，次回合定晋级</li>
+            </ul>
+          </div>
+          <div class="ov-card">
+            <h3>篮球：NBA 常规赛 6 场 <span class="pill orange">今日 6 场</span></h3>
+            <p>08:00 东部队先开打，10:30 湖人客场对掘金为今日焦点。腾讯体育与咪咕各有单场版权，解说阵容不同。</p>
+            <ul>
+              <li>08:00 凯尔特人 vs 魔术</li>
+              <li>10:30 湖人 vs 掘金（焦点战）</li>
+              <li>11:00 国王 vs 勇士</li>
+            </ul>
+          </div>
+          <div class="ov-card">
+            <h3>电竞：LPL 冬季赛第 3 周 <span class="pill warn">今日 2 场</span></h3>
+            <p>17:00 与 19:30 两场 BO3，B 站、虎牙、斗鱼同步。观赛页显示实时经济差与视野数据，比分会后 5 分钟内回填。</p>
+            <ul>
+              <li>17:00 JDG vs BLG</li>
+              <li>19:30 TES vs WBG</li>
+              <li>赛后可看选手第一视角回放</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 今日赛程（最新更新） -->
+      <section class="block" id="schedule" aria-labelledby="schTitle">
+        <div class="block-head">
+          <h2 id="schTitle">今日赛程直播时间表</h2>
+          <span class="more">11 月 8 日 · 全部 87 场</span>
+        </div>
+        <div class="card pad">
+          <ul class="list-card">
+            <li>
+              <span class="list-time">18:30</span>
+              <div class="list-main"><strong>澳超：墨尔本城 vs 悉尼FC</strong><span>爱奇艺体育 · 解说 陈墨</span></div>
+              <span class="list-badge" style="background:var(--c-primary-soft);color:var(--c-primary-dark)">待开赛</span>
+            </li>
+            <li>
+              <span class="list-time">20:00</span>
+              <div class="list-main"><strong>西甲第 13 轮：马竞 vs 贝蒂斯</strong><span>咪咕视频 · 中文解说，赛前 20 分钟预告</span></div>
+              <span class="list-badge" style="background:var(--c-primary-soft);color:var(--c-primary-dark)">待开赛</span>
+            </li>
+            <li>
+              <span class="list-time">21:00</span>
+              <div class="list-main"><strong>西甲第 13 轮：皇马 vs 塞维利亚</strong><span>CCTV5 + 咪咕 · 开球时间今日 08:45 调整</span></div>
+              <span class="list-badge" style="background:var(--c-accent-soft);color:#b8491f">时间调整</span>
+            </li>
+            <li>
+              <span class="list-time">23:00</span>
+              <div class="list-main"><strong>英超第 11 轮：阿森纳 vs 富勒姆</strong><span>爱奇艺体育 · 英文原声可选</span></div>
+              <span class="list-badge" style="background:var(--c-primary-soft);color:var(--c-primary-dark)">待开赛</span>
+            </li>
+            <li>
+              <span class="list-time">03:00</span>
+              <div class="list-main"><strong>解放者杯半决赛次回合：弗拉门戈 vs 河床</strong><span>咪咕视频 · 首回合 1:1，本场定晋级</span></div>
+              <span class="list-badge" style="background:var(--c-bg);color:var(--c-ink-3)">明日凌晨</span>
+            </li>
+          </ul>
+          <p style="margin:var(--sp-3) 0 0;font-size:13px;color:var(--c-ink-3)">赛程以各联赛官方赛程页为准，本站按北京时间整理；如遇延期，页内会保留原时段并标注“延期”。</p>
+        </div>
+      </section>
+
+      <!-- 03 精选内容推荐 -->
+      <section class="block" id="featured" aria-labelledby="featTitle">
+        <div class="block-head">
+          <h2 id="featTitle">精选直播频道推荐</h2>
+          <span class="more">按热度与解说质量挑选</span>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <img class="feature-img" src="https://picsum.photos/seed/football-laliga13/400/300" width="400" height="300" loading="lazy" alt="西甲第13轮皇马主场赛前球场全景">
+            <div class="feature-body">
+              <h3><a href="/#analysis">西甲第 13 轮观赛手册：皇马主场的三种进攻落位</a></h3>
+              <p>从近 5 轮数据看，皇马左路推进占比 41%，塞维利亚的边路回收速度是胜负手。</p>
+              <div class="meta-row"><span class="tag">西甲直播</span><span class="tag">战术分析</span><span>11-08</span></div>
+            </div>
+          </article>
+          <article class="feature">
+            <img class="feature-img" src="https://picsum.photos/seed/nba-lakers-nuggets/400/300" width="400" height="300" loading="lazy" alt="NBA湖人客场对阵掘金的赛前热身画面">
+            <div class="feature-body">
+              <h3><a href="/#live">湖人客场对掘金：两路解说怎么选</a></h3>
+              <p>腾讯体育偏战术复盘，咪咕嘉宾是前队员，暂停时段会拆解挡拆细节，适合进阶球迷。</p>
+              <div class="meta-row"><span class="tag">NBA直播</span><span class="tag">解说对比</span><span>11-08</span></div>
+            </div>
+          </article>
+          <article class="feature">
+            <img class="feature-img" src="https://picsum.photos/seed/lpl-jdg-blg/400/300" width="400" height="300" loading="lazy" alt="LPL冬季赛JDG对阵BLG的舞台灯光">
+            <div class="feature-body">
+              <h3><a href="/#live">JDG vs BLG 赛前：版本更新后的下路优先级</a></h3>
+              <p>13.22 版本削弱了硬辅开团收益，BLG 最近三场把首抢位留给打野，节奏明显前移。</p>
+              <div class="meta-row"><span class="tag">LPL直播</span><span class="tag">版本解读</span><span>11-08</span></div>
+            </div>
+          </article>
+          <article class="feature">
+            <img class="feature-img" src="https://picsum.photos/seed/libertadores-river/400/300" width="400" height="300" loading="lazy" alt="解放者杯半决赛河床球迷看台">
+            <div class="feature-body">
+              <h3><a href="/#analysis">解放者杯次回合：1:1 之后，客场进球规则已取消</a></h3>
+              <p>现行规则下平局直接进加时，弗拉门戈不能再靠客场进球占便宜，河床的防守站位会更保守。</p>
+              <div class="meta-row"><span class="tag">解放者杯</span><span class="tag">赛制说明</span><span>11-07</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 04 分类入口 -->
+      <section class="block" id="categories" aria-labelledby="catTitle">
+        <div class="block-head">
+          <h2 id="catTitle">按项目与联赛找直播</h2>
+          <span class="more">12 个频道</span>
+        </div>
+        <div class="cat-index">
+          <a href="/#live">西甲直播<small>第 13 轮 · 3 场</small></a>
+          <a href="/#live">英超直播<small>第 11 轮 · 4 场</small></a>
+          <a href="/#live">NBA 常规赛<small>今日 6 场</small></a>
+          <a href="/#live">CBA 直播<small>第 6 轮 · 2 场</small></a>
+          <a href="/#live">LPL 冬季赛<small>第 3 周 · 2 场</small></a>
+          <a href="/#live">欧冠联赛<small>小组赛第 5 轮</small></a>
+          <a href="/#live">解放者杯<small>半决赛次回合</small></a>
+          <a href="/#live">意甲直播<small>第 12 轮 · 3 场</small></a>
+          <a href="/#live">德甲直播<small>第 10 轮 · 2 场</small></a>
+          <a href="/#live">网球 ATP 年终<small>小组赛第 2 日</small></a>
+          <a href="/#live">F1 圣保罗站<small>正赛 11-09 01:00</small></a>
+          <a href="/#schedule">世界杯预选赛<small>亚洲区 · 本轮 5 场</small></a>
+        </div>
+      </section>
+
+      <!-- 05 深度解析（唯一主体阅读区） -->
+      <section class="block" id="analysis" aria-labelledby="anaTitle">
+        <div class="block-head">
+          <h2 id="anaTitle">深度解析：多平台直播版权怎么影响观赛选择</h2>
+          <span class="more">含赛制与版权规则对照</span>
+        </div>
+        <div class="analysis">
+          <p class="analysis-intro">同一天的比赛，有的频道能看全场，有的只给图文直播；有的解说拆战术，有的只报比分。差别不在“免费还是付费”这么简单，而在版权包、分发规则和赛事方的转播细则三层。</p>
+
+          <h3>判断一：单场版权拆分让“一联赛多平台”成为常态</h3>
+          <p>2026—2027 赛季西甲在中国的转播权由两家平台分持：CCTV5 拿到每周一场免费场次，咪咕视频持有其余场次的新媒体独家。这意味着同一轮 3 场比赛，可能只有 1 场出现在电视端。想看皇马对塞维利亚以外的两场，必须切到新媒体端。</p>
+          <div class="claim">可核对结论：11 月 8 日西甲 3 场中，电视端只覆盖皇马一场，其余两场需新媒体端账号。</div>
+          <table class="datatable">
+            <caption style="text-align:left;font-size:13px;color:var(--c-ink-3);padding-bottom:6px">表 1：今日三项赛事的直播分发方式（11 月 8 日）</caption>
+            <thead>
+              <tr><th>赛事</th><th>电视端</th><th>新媒体端</th><th>回放上线</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>西甲第 13 轮</td><td>CCTV5 播 1 场</td><td>咪咕 3 场全量</td><td>赛后 30 分钟</td></tr>
+              <tr><td>NBA 常规赛</td><td>无</td><td>腾讯体育 4 场、咪咕 2 场</td><td>赛后 10 分钟</td></tr>
+              <tr><td>LPL 冬季赛</td><td>无</td><td>B 站 / 虎牙 / 斗鱼同步</td><td>赛后 5 分钟</td></tr>
+            </tbody>
+          </table>
+          <p>上表里最值得注意的是回放时差。电竞回放最快，因为比赛数据由联盟统一接口输出；足球要等转播方剪辑，30 分钟是常态。</p>
+
+          <h3>判断二：解说质量差异比画质差异更影响留存</h3>
+          <p>画质在 2026 年基本拉平到 1080P 60 帧，少数场次提供 4K。真正拉开差距的是解说席配置。以今日湖人客场为例，腾讯体育安排两人解说加一名战术嘉宾，暂停时会切战术板；咪咕为单人解说，节奏更快但细节少。10 月 26 日两平台同播的勇士对太阳，赛后弹幕集中在“战术板太少”这条，说明需求确实存在。</p>
+          <p>这里的判断可以被反驳：如果观众习惯静音看球，只关心比分与节奏，单人解说反而更清爽。选哪路没有标准答案，取决于是否想在暂停时听拆解。</p>
+
+          <h3>判断三：赛制变化会改变直播看点，而不是改变平台</h3>
+          <ul class="list-card" style="margin-bottom:var(--sp-3)">
+            <li><span class="list-time">2021</span><div class="list-main"><strong>欧冠取消客场进球规则</strong><span>两回合平局直接进加时，次回合直播的悬念窗口后移</span></div></li>
+            <li><span class="list-time">2024</span><div class="list-main"><strong>解放者杯同步取消客场进球</strong><span>南美赛事与欧战口径统一，客队不再“守一个进球”</span></div></li>
+            <li><span class="list-time">2026</span><div class="list-main"><strong>LPL 冬季赛改为全局 BP</strong><span>同一英雄系列赛内不可重复，直播的画面节奏更依赖 BP 阶段的解说</span></div></li>
+          </ul>
+          <p>三条变化都发生在规则层，不涉及转播平台。但它们直接影响“哪一段值得看”：欧冠次回合最后 15 分钟的价值变高，LPL 的 BP 环节从 8 分钟拉长到 12 分钟以上，解说没内容就容易冷场。</p>
+
+          <h3>判断四：延迟是选择直播源时最该看的隐性指标</h3>
+          <p>同一场比赛，不同平台的推流延迟可差 20—40 秒。11 月 5 日英超一场比赛，电视端比某新媒体端快约 25 秒，社交媒体上的进球动图往往先于新媒体端播出。对同时开着聊天群的观众，这会直接造成“被剧透”。想避开，优先选延迟低的源，或把社交提醒关掉。</p>
+          <p>需要说明的是，延迟数据来自公开测速工具的抽样，不同网络环境下差异会缩小或放大，不能当作平台质量的唯一证据。</p>
+        </div>
+      </section>
+
+      <!-- 06 体验指南（编号步骤） -->
+      <section class="block" id="guide" aria-labelledby="guideTitle">
+        <div class="block-head">
+          <h2 id="guideTitle">观赛前的五步准备</h2>
+          <span class="more">从找场次到调清晰度</span>
+        </div>
+        <ol class="steps">
+          <li><b>先定场次，再定平台</b>用今日赛程表锁定开赛时间，记下联赛轮次，避免在多个 App 里反复搜索同一场比赛。</li>
+          <li><b>核对版权归属</b>西甲看咪咕或 CCTV5，NBA 看腾讯体育或咪咕，LPL 三平台任选。版权每周可能微调，开赛前一天再看一次。</li>
+          <li><b>提前 10 分钟进直播间</b>足球赛前有首发名单，电竞有 BP，篮球有热身采访。这段时间的信息量往往比开场后更大。</li>
+          <li><b>设置清晰度与延迟偏好</b>手机流量有限时锁 720P；用电视端投屏时选“低延迟”档，牺牲一点画质换同步。</li>
+          <li><b>赛后看回放补细节</b>足球回放约赛后 30 分钟上线，电竞 5 分钟。想复看关键判罚，直接跳到时间轴标注的争议节点。</li>
+        </ol>
+      </section>
+
+      <!-- 07 FAQ -->
+      <section class="block faq" id="faq" aria-labelledby="faqTitle">
+        <div class="block-head">
+          <h2 id="faqTitle">直播观看常见问题</h2>
+          <span class="more">7 个高频疑问</span>
+        </div>
+        <details>
+          <summary>同一天多场比赛同时开球，怎么看两场？</summary>
+          <div class="ans">多数新媒体端支持多窗口或画中画，但同一账号通常只允许一路高清推流。实际操作是把主看场次放在大屏，另一场用手机看图文直播或低码率流，避免两路同时占带宽。</div>
+        </details>
+        <details>
+          <summary>西甲第 13 轮为什么电视上只看到一场？</summary>
+          <div class="ans">西甲在中国的新媒体版权由咪咕视频独家持有，CCTV5 每轮只拿到一场免费转播权。11 月 8 日电视端播出的是皇马对塞维利亚，马竞对贝蒂斯等场次只在新媒体端上线。</div>
+        </details>
+        <details>
+          <summary>NBA 常规赛的直播延迟一般是多少？</summary>
+          <div class="ans">抽样测试中，腾讯体育与咪咕的推流延迟在 15—35 秒之间，具体取决于网络与所选清晰度。选“低延迟”档可以压缩到 10 秒左右，但画质会降到 720P。</div>
+        </details>
+        <details>
+          <summary>LPL 冬季赛的全局 BP 对观赛有什么影响？</summary>
+          <div class="ans">同一英雄在系列赛内不可重复选用，BP 阶段时长从约 8 分钟拉长到 12 分钟以上。解说需要覆盖更多英雄池信息，观众也可以利用这段时间判断队伍的英雄优先级。</div>
+        </details>
+        <details>
+          <summary>解放者杯半决赛平局后怎么算晋级？</summary>
+          <div class="ans">客场进球规则在 2024 年已取消。两回合总比分相同则进入加时，加时仍平则点球决胜。弗拉门戈与河床首回合 1:1，次回合 90 分钟内任何比分都可能改写结果。</div>
+        </details>
+        <details>
+          <summary>错过直播，多久能看到完整回放？</summary>
+          <div class="ans">电竞最快，赛后约 5 分钟出现在 B 站与虎牙；NBA 约 10 分钟；足球因剪辑与审核，通常 30 分钟，遇到争议判罚可能延后到 1 小时。</div>
+        </details>
+        <details>
+          <summary>没有账号能看哪些比赛？</summary>
+          <div class="ans">CCTV5 每轮西甲一场、部分世界杯预选赛为免费电视端播出；LPL 在 B 站有免费高清流；NBA 与其余西甲场次需要平台账号，部分场次为付费会员。</div>
+        </details>
+      </section>
+
+      <!-- 08 用户评论 -->
+      <section class="block" id="comments" aria-labelledby="cmTitle">
+        <div class="block-head">
+          <h2 id="cmTitle">球迷观赛评论</h2>
+          <span class="more">44 条 · 精选 6 条</span>
+        </div>
+        <div class="comments">
+          <article class="comment">
+            <header><span class="avatar">林</span><span class="who">林工看球</span><time datetime="2026-11-08">今天 09:02</time></header>
+            <p>皇马对塞维利亚从 20:30 挪到 21:00，正好赶上我下班，这个调整挺人性。<b>赛程页把原时段也留着</b>，一眼能看出改过。</p>
+          </article>
+          <article class="comment">
+            <header><span class="avatar">K</span><span class="who">Kevin_Z</span><time datetime="2026-11-08">今天 08:47</time></header>
+            <p>湖人掘金这场两路解说差别真不小，腾讯那边暂停切战术板，咪咕基本在聊球员状态。<b>我想听挡拆怎么拆的，还是选腾讯。</b></p>
+          </article>
+          <article class="comment">
+            <header><span class="avatar">陈</span><span class="who">陈小满</span><time datetime="2026-11-07">昨天 23:15</time></header>
+            <p>说实话每日场次汇总得挺全，就是分类入口点进去还是回到直播区，有点绕。<b>想把“意甲直播”单独做一页</b>，现在得在长列表里找。</p>
+          </article>
+          <article class="comment">
+            <header><span class="avatar">阿</span><span class="who">阿豪的电竞笔记</span><time datetime="2026-11-07">昨天 21:40</time></header>
+            <p>JDG 打 BLG 的 BP 阶段是真长，全局 BP 之后解说要说的东西多了。<b>B 站那边的赛前数据板做得比上一版清楚</b>，能看到英雄使用率。</p>
+          </article>
+          <article class="comment">
+            <header><span class="avatar">球</span><span class="who">球场边第12人</span><time datetime="2026-11-06">11-06 20:18</time></header>
+            <p>解放者杯取消客场进球这事，我到现在还没完全适应。首回合 1:1 等于什么都没定，<b>次回合从第一分钟就得压</b>，看着比以前累。</p>
+          </article>
+          <article class="comment">
+            <header><span class="avatar">Z</span><span class="who">周末看F1</span><time datetime="2026-11-05">11-05 19:05</time></header>
+            <p>F1 圣保罗站正赛排到 11-09 凌晨 1 点，第二天还要上班。回放如果也能标出安全车和进站节点就好了，<b>现在只能自己拖时间轴</b>。</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 09 相关资讯（含事实/回应/转述区分） -->
+      <section class="block" id="news" aria-labelledby="newsTitle">
+        <div class="block-head">
+          <h2 id="newsTitle">赛事与直播相关资讯</h2>
+          <span class="more">标注信息来源类型</span>
+        </div>
+        <div class="news-grid">
+          <div class="news-item">
+            <h3>西甲第 13 轮开球时间调整</h3>
+            <p><span class="pill">事实</span> 西甲官方赛程页把皇马对塞维利亚从 20:30 改为 21:00，其余两场不变。</p>
+            <span class="src">来源：西甲官网赛程页 · 11-08</span>
+          </div>
+          <div class="news-item">
+            <h3>NBA 湖人客场直播源增加</h3>
+            <p><span class="pill orange">回应</span> 平台客服在评论区答复，今日 10:30 场次新增一路英文原声，因应弹幕需求。</p>
+            <span class="src">来源：平台客服评论区 · 11-08</span>
+          </div>
+          <div class="news-item">
+            <h3>LPL 冬季赛赛程微调</h3>
+            <p><span class="pill warn">转述</span> 有观众称 TES 对 WBG 顺延 30 分钟，联盟尚未发布正式公告，赛程页暂维持 19:30。</p>
+            <span class="src">来源：观众反馈 · 11-07</span>
+          </div>
+          <div class="news-item">
+            <h3>解放者杯次回合场地安排</h3>
+            <p><span class="pill">事实</span> 弗拉门戈主场马拉卡纳可容纳 7.8 万人，球票已于 11-05 售罄。</p>
+            <span class="src">来源：俱乐部公告 · 11-05</span>
+          </div>
+          <div class="news-item">
+            <h3>世界杯预选赛亚洲区本轮对阵</h3>
+            <p><span class="pill">推测</span> 若本轮两场全胜，出线形势将提前一轮明朗，具体仍取决于同组另一场结果。</p>
+            <span class="src">来源：积分规则推算 · 11-06</span>
+          </div>
+          <div class="news-item">
+            <h3>ATP 年终总决赛直播安排</h3>
+            <p><span class="pill">事实</span> 小组赛第 2 日两场单打，国内无电视端转播，仅新媒体端与官方流。</p>
+            <span class="src">来源：ATP 赛事页 · 11-07</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 榜单 -->
+      <section class="block" id="ranking" aria-labelledby="rankTitle">
+        <div class="block-head">
+          <h2 id="rankTitle">本周直播观看热度榜</h2>
+          <span class="more">按站内点开次数 · 11-02 至 11-08</span>
+        </div>
+        <div class="card pad">
+          <ol class="rank-list">
+            <li><div class="r-main"><strong>皇马 vs 塞维利亚（西甲第 13 轮）</strong><span>今日 21:00 · 咪咕 / CCTV5</span></div><span class="r-val">3.1 万</span></li>
+            <li><div class="r-main"><strong>湖人 vs 掘金（NBA 常规赛）</strong><span>今日 10:30 · 腾讯体育 / 咪咕</span></div><span class="r-val">2.7 万</span></li>
+            <li><div class="r-main"><strong>JDG vs BLG（LPL 冬季赛）</strong><span>今日 17:00 · B 站 / 虎牙 / 斗鱼</span></div><span class="r-val">2.4 万</span></li>
+            <li><div class="r-main"><strong>阿森纳 vs 富勒姆（英超第 11 轮）</strong><span>今日 23:00 · 爱奇艺体育</span></div><span class="r-val">1.8 万</span></li>
+            <li><div class="r-main"><strong>弗拉门戈 vs 河床（解放者杯半决赛）</strong><span>明日 03:00 · 咪咕</span></div><span class="r-val">1.5 万</span></li>
+          </ol>
+          <p class="side-note">热度为站内直播入口点击次数，不含平台端播放量，只反映读者关注分布。</p>
+        </div>
+      </section>
+
+      <!-- 11 时间线 -->
+      <section class="block" id="timeline" aria-labelledby="tlTitle">
+        <div class="block-head">
+          <h2 id="tlTitle">本周赛程与直播变动时间线</h2>
+          <span class="more">11-02 至 11-08</span>
+        </div>
+        <div class="card pad">
+          <ul class="timeline">
+            <li><time datetime="2026-11-02">11-02</time><b>欧冠小组赛第 5 轮开打</b><p>三个比赛日共 18 场，直播版权分散在两家平台，赛程页首次加入“平台”列。</p></li>
+            <li><time datetime="2026-11-04">11-04</time><b>NBA 常规赛进入密集期</b><p>当日起连续 5 天每天不少于 5 场，湖人客场之旅成为关注焦点。</p></li>
+            <li><time datetime="2026-11-05">11-05</time><b>英超第 11 轮赛程公布</b><p>两场安排在北京时间 23:00 之后，爱奇艺体育确认拿下全部场次新媒体独家。</p></li>
+            <li><time datetime="2026-11-06">11-06</time><b>欧冠抽签规则说明更新</b><p>客场进球取消后的抽签分档细则同步调整，赛制说明页做了对照表。</p></li>
+            <li><time datetime="2026-11-07">11-07</time><b>LPL 冬季赛第 3 周排期确认</b><p>全局 BP 规则落地，赛前 BP 环节时长纳入直播编排。</p></li>
+            <li><time datetime="2026-11-08">11-08</time><b>西甲与 NBA 同日焦点</b><p>皇马开球时间改为 21:00，湖人客场新增英文原声源。</p></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 12 相关推荐标签 -->
+      <section class="block" id="recommend" aria-labelledby="recTitle">
+        <div class="block-head">
+          <h2 id="recTitle">相关推荐与长尾搜索</h2>
+        </div>
+        <div class="tag-cloud">
+          <a href="/#schedule">今天西甲比赛几点开球</a>
+          <a href="/#live">NBA 湖人掘金直播在线看</a>
+          <a href="/#guide">LPL 全局 BP 怎么看懂</a>
+          <a href="/#schedule">今晚英超直播时间表</a>
+          <a href="/#analysis">解放者杯次回合晋级规则</a>
+          <a href="/#live">免费看世界杯预选赛直播</a>
+          <a href="/#guide">手机看篮球直播省流量设置</a>
+          <a href="/#news">足球比赛回放多久上线</a>
+          <a href="/#ranking">本周热度最高比赛排行</a>
+        </div>
+      </section>
+
+      <!-- 13 互动：站内搜索 -->
+      <section class="block" id="searchZone" aria-labelledby="searchTitle">
+        <div class="block-head">
+          <h2 id="searchTitle">站内查找比赛</h2>
+          <span class="more">输入球队、联赛或选手名</span>
+        </div>
+        <div class="card pad">
+          <p style="font-size:14px;color:var(--c-ink-2);margin-top:0">输入“皇马”“湖人”“JDG”“解放者杯”等关键词，直接在下方筛出相关场次与解析段落。搜索只在本地完成，不发送任何数据。</p>
+          <div class="search-result" id="searchResult" aria-live="polite"></div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 侧栏 -->
+    <aside aria-label="侧栏导航与快捷入口">
+      <div class="side-card side-nav" id="sideNav">
+        <h2>本页导航 <span>12 栏</span></h2>
+        <ul>
+          <li><a href="/#overview">赛事观赛概览</a></li>
+          <li><a href="/#schedule">今日赛程时间表</a></li>
+          <li><a href="/#featured">精选直播频道</a></li>
+          <li><a href="/#categories">项目与联赛分类</a></li>
+          <li><a href="/#analysis">直播版权深度解析</a></li>
+          <li><a href="/#guide">观赛前五步准备</a></li>
+          <li><a href="/#faq">直播常见问题</a></li>
+          <li><a href="/#comments">球迷观赛评论</a></li>
+          <li><a href="/#news">赛事相关资讯</a></li>
+          <li><a href="/#ranking">本周热度榜</a></li>
+          <li><a href="/#timeline">赛程变动时间线</a></li>
+          <li><a href="/#recommend">相关推荐标签</a></li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h2>马上开赛 <span>3 场</span></h2>
+        <ul class="side-list">
+          <li><a href="/#schedule">JDG vs BLG<small>17:00 · LPL 冬季赛 BO3</small></a></li>
+          <li><a href="/#schedule">墨尔本城 vs 悉尼FC<small>18:30 · 澳超</small></a></li>
+          <li><a href="/#schedule">马竞 vs 贝蒂斯<small>20:00 · 西甲第 13 轮</small></a></li>
+        </ul>
+        <p class="side-note">时间为北京时间，赛前 15 分钟页面会提示直播入口已开放。</p>
+      </div>
+
+      <div class="side-card">
+        <h2>观赛小工具</h2>
+        <ul class="side-list">
+          <li><a href="/#guide">延迟与清晰度取舍表</a></li>
+          <li><a href="/#faq">回放上线时间对照</a></li>
+          <li><a href="/#analysis">版权分发规则说明</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<button class="to-top" id="toTop" type="button" aria-label="回到页面顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<footer class="site-footer" id="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#0e7c66"/>
+            <circle cx="32" cy="32" r="17" fill="none" stroke="#fff" stroke-width="3.5"/>
+            <path d="M32 15v34M15 32h34" stroke="#fff" stroke-width="3.5"/>
+            <circle cx="32" cy="32" r="5" fill="#e0663a"/>
+          </svg>
+          <span class="brand-text">每天比赛在线观看</span>
+        </div>
+        <p>把每日跨项目赛程、直播入口与观赛判断整理在一起，帮读者少开几个 App、少等几分钟延迟。</p>
+        <p>站内条目为示例数据，用于演示赛程整理与观赛说明的呈现方式；实际开赛时间与直播版权以联赛官方与转播平台公告为准。</p>
+      </div>
+      <div>
+        <h3>赛程频道</h3>
+        <ul>
+          <li><a href="/#schedule">今日赛程时间表</a></li>
+          <li><a href="/#live">直播入口汇总</a></li>
+          <li><a href="/#categories">联赛与项目分类</a></li>
+          <li><a href="/#timeline">赛程变动时间线</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>观赛参考</h3>
+        <ul>
+          <li><a href="/#analysis">直播版权解析</a></li>
+          <li><a href="/#guide">观赛五步准备</a></li>
+          <li><a href="/#faq">直播常见问题</a></li>
+          <li><a href="/#ranking">本周热度榜</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>互动与反馈</h3>
+        <ul>
+          <li><a href="/#comments">球迷观赛评论</a></li>
+          <li><a href="/#searchZone">站内查找比赛</a></li>
+          <li><a href="/#news">赛事相关资讯</a></li>
+          <li><a href="/#recommend">相关推荐标签</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-note">
+      <span>正文更新时间 2026-11-08 09:20，对应更新项：皇马开球时间、湖人直播源、LPL 排期。</span>
+      <span class="legal"><span>© 2026 每天比赛在线观看</span><span>示例数据展示页</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 移动端导航 */
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('mainNav');
+  if(toggle && nav){
+    toggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? '收起导航菜单' : '展开导航菜单');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A' && window.innerWidth <= 860){
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded','false');
+      }
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && nav.classList.contains('open')){
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded','false');
+        toggle.focus();
+      }
+    });
+  }
+
+  /* 回到顶部 */
+  var toTop = document.getElementById('toTop');
+  if(toTop){
+    var onScroll = function(){
+      if(window.scrollY > 500){ toTop.classList.add('show'); }
+      else { toTop.classList.remove('show'); }
+    };
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+    toTop.addEventListener('click', function(){
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
+    });
+  }
+
+  /* 侧栏滚动高亮 */
+  var sideLinks = Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+  var targets = sideLinks.map(function(a){
+    var id = a.getAttribute('href').replace('/#','');
+    return document.getElementById(id);
+  }).filter(Boolean);
+  if('IntersectionObserver' in window && targets.length){
+    var visible = new Set();
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ visible.add(en.target.id); }
+        else { visible.delete(en.target.id); }
+      });
+      var current = null;
+      sideLinks.forEach(function(a){
+        var id = a.getAttribute('href').replace('/#','');
+        if(visible.has(id) && !current){ current = id; }
+      });
+      if(current){
+        sideLinks.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href') === '/#' + current);
+        });
+      }
+    }, {rootMargin:'-120px 0px -55% 0px', threshold:0});
+    targets.forEach(function(t){ io.observe(t); });
+  }
+
+  /* 本地搜索 */
+  var data = [
+    {t:'西甲第 13 轮：皇马 vs 塞维利亚', d:'今日 21:00，咪咕 / CCTV5，开球时间 08:45 调整', h:'/#schedule'},
+    {t:'西甲第 13 轮：马竞 vs 贝蒂斯', d:'今日 20:00，咪咕视频', h:'/#schedule'},
+    {t:'NBA 常规赛：湖人 vs 掘金', d:'今日 10:30，腾讯体育 / 咪咕，新增英文原声', h:'/#live'},
+    {t:'NBA 常规赛：国王 vs 勇士', d:'今日 11:00，腾讯体育', h:'/#live'},
+    {t:'LPL 冬季赛：JDG vs BLG', d:'今日 17:00，B 站 / 虎牙 / 斗鱼，全局 BP', h:'/#live'},
+    {t:'LPL 冬季赛：TES vs WBG', d:'今日 19:30，三平台同步', h:'/#live'},
+    {t:'解放者杯半决赛次回合：弗拉门戈 vs 河床', d:'明日 03:00，咪咕，客场进球规则已取消', h:'/#analysis'},
+    {t:'英超第 11 轮：阿森纳 vs 富勒姆', d:'今日 23:00，爱奇艺体育', h:'/#schedule'},
+    {t:'欧冠小组赛第 5 轮', d:'11-02 起三个比赛日，18 场', h:'/#timeline'},
+    {t:'直播版权分发与平台差异', d:'电视端仅覆盖西甲 1 场，新媒体端全量', h:'/#analysis'},
+    {t:'观赛五步准备', d:'定场次、核版权、提前进场、设清晰度、看回放', h:'/#guide'},
+    {t:'回放上线时间', d:'电竞 5 分钟、NBA 10 分钟、足球 30 分钟', h:'/#faq'},
+    {t:'世界杯预选赛亚洲区', d:'本轮 5 场，出线形势需看同组结果', h:'/#news'},
+    {t:'F1 圣保罗站', d:'正赛 11-09 01:00，无电视端转播', h:'/#categories'},
+    {t:'ATP 年终总决赛', d:'小组赛第 2 日两场单打，仅新媒体端', h:'/#news'}
+  ];
+
+  var input = document.getElementById('searchInput');
+  var btn = document.getElementById('searchBtn');
+  var result = document.getElementById('searchResult');
+
+  function escapeHtml(s){
+    return s.replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function runSearch(){
+    if(!input || !result) return;
+    var q = input.value.trim().toLowerCase();
+    if(!q){
+      result.innerHTML = '<p class="search-empty">请输入关键词，例如“皇马”“湖人”“JDG”“解放者杯”。</p>';
+      return;
+    }
+    var hits = data.filter(function(item){
+      return (item.t + item.d).toLowerCase().indexOf(q) > -1;
+    });
+    if(!hits.length){
+      result.innerHTML = '<p class="search-empty">没有找到与“' + escapeHtml(input.value.trim()) + '”相关的场次。试试输入球队简称或联赛名，如“西甲”“NBA”“LPL”。</p>';
+      return;
+    }
+    var html = '<p style="font-size:13px;color:var(--c-ink-3);margin:0 0 6px">找到 ' + hits.length + ' 条相关结果</p>';
+    hits.forEach(function(item){
+      html += '<div class="hit"><a href="' + item.h + '"><strong>' + escapeHtml(item.t) + '</strong></a><br><span style="color:var(--c-ink-3);font-size:13px">' + escapeHtml(item.d) + '</span></div>';
+    });
+    result.innerHTML = html;
+  }
+
+  if(btn){ btn.addEventListener('click', runSearch); }
+  if(input){
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); runSearch(); }
+    });
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "每天比赛在线观看",
+  "description": "汇总每日足球、篮球、电竞等项目的赛程时间、直播入口与观赛指南。",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "同一天多场比赛同时开球，怎么看两场？",
+      "acceptedAnswer": {"@type": "Answer", "text": "多数新媒体端支持多窗口或画中画，但同一账号通常只允许一路高清推流。主看场次放大屏，另一场用手机看图文直播或低码率流，避免两路同时占带宽。"}
+    },
+    {
+      "@type": "Question",
+      "name": "西甲第 13 轮为什么电视上只看到一场？",
+      "acceptedAnswer": {"@type": "Answer", "text": "西甲在中国的新媒体版权由咪咕视频独家持有，CCTV5 每轮只拿到一场免费转播权。11 月 8 日电视端播出皇马对塞维利亚，马竞对贝蒂斯等场次只在新媒体端上线。"}
+    },
+    {
+      "@type": "Question",
+      "name": "NBA 常规赛的直播延迟一般是多少？",
+      "acceptedAnswer": {"@type": "Answer", "text": "抽样测试中推流延迟在 15—35 秒之间，取决于网络与清晰度。选低延迟档可压缩到 10 秒左右，画质降到 720P。"}
+    },
+    {
+      "@type": "Question",
+      "name": "LPL 冬季赛的全局 BP 对观赛有什么影响？",
+      "acceptedAnswer": {"@type": "Answer", "text": "同一英雄在系列赛内不可重复选用，BP 阶段时长从约 8 分钟拉长到 12 分钟以上，解说需要覆盖更多英雄池信息。"}
+    },
+    {
+      "@type": "Question",
+      "name": "解放者杯半决赛平局后怎么算晋级？",
+      "acceptedAnswer": {"@type": "Answer", "text": "客场进球规则在 2024 年已取消。两回合总比分相同则进入加时，加时仍平则点球决胜。"}
+    },
+    {
+      "@type": "Question",
+      "name": "错过直播，多久能看到完整回放？",
+      "acceptedAnswer": {"@type": "Answer", "text": "电竞最快约 5 分钟，NBA 约 10 分钟，足球通常 30 分钟，遇到争议判罚可能延后到 1 小时。"}
+    },
+    {
+      "@type": "Question",
+      "name": "没有账号能看哪些比赛？",
+      "acceptedAnswer": {"@type": "Answer", "text": "CCTV5 每轮西甲一场、部分世界杯预选赛为免费电视端播出；LPL 在 B 站有免费高清流；NBA 与其余西甲场次需平台账号。"}
+    }
+  ]
+}
+</script>
+</body>
+  </html>
